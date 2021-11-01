@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { Config } from "../../constants";
 import { Category } from "../Category";
 
 import { List, Item } from "./styles";
@@ -10,7 +11,7 @@ function useCategoriesData() {
   useEffect(function() {
     setLoading(true);
     window
-      .fetch("http://dc96e9a3d39e.ngrok.io/categories")
+      .fetch(`${Config.api.https}/categories`)
       .then(res => res.json())
       .then(response => {
         setCategories(response);
