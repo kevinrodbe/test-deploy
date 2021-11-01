@@ -1,6 +1,7 @@
+const domain = "087c34a1bc94.ngrok.io";
 export const Config = {
   api: {
-    http: "http://dc96e9a3d39e.ngrok.io",
-    https: "https://dc96e9a3d39e.ngrok.io"
+    http: `http://${domain}`,
+    https: `https://${domain}`
   }
 };
