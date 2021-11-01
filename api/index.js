@@ -14,6 +14,20 @@ const app = express();
 const { categories } = require("./db.json");
 
 app.use(cors({ credentials: true, origin: false }));
+app.use((req, res, next) => {
+  // Cross-origin cookies
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Authorization"
+  );
+  next();
+});
 
 // auth middleware
 const auth = jwt({
