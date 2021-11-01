@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3500;
 const app = express();
 const { categories } = require("./db.json");
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: false }));
 
 // auth middleware
 const auth = jwt({
